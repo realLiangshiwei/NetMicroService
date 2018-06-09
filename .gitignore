@@ -252,5 +252,3 @@ paket-files/
 *.sln.iml
 **/App_Data/Logs/
 **/wwwroot/css/*.css
-/AuthorizationServer/wwwroot/lib
-/src/JingShOnline.Account.Web.Mvc/wwwroot/lib
