@@ -23,7 +23,7 @@ namespace UserService.Controllers
             return Ok("ok");
         }
 
-        public async Task<IActionResult> RegisterAsync()
+        public async Task<IActionResult> Register()
         {
             using (var client = new ConsulClient (opt =>
             {
