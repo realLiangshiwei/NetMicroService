@@ -41,7 +41,7 @@ namespace UserService.Controllers
                         {
                             DeregisterCriticalServiceAfter = TimeSpan.FromSeconds (5),
                                 Interval = TimeSpan.FromSeconds (15),
-                                HTTP = $"https://localhost:{HttpContext.Connection.LocalPort}/home/Health",
+                                HTTP = $"https://localhost:{HttpContext.Connection.LocalPort}/api/Consul/Health",
                                 Timeout = TimeSpan.FromSeconds (5)
                         }
                 });
