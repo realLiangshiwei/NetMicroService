@@ -28,20 +28,26 @@ namespace UserService.Controllers
             using (var client = new ConsulClient (opt =>
             {
                 opt.Address = new Uri ("http://localhost:8500");
-                opt.Datacenter = "dc1";
+                opt.Datacenter = "dc1"; 
             }))
             {
+                 var address = HttpContext.Connection.LocalIpAddress.ToString();
+                 if(address=="::1")
+                 {
+                     address = "localhost";
+                 }
                await client.Agent.ServiceRegister(new AgentServiceRegistration
                 {
+                   
                     Name = ServiceName,
                         ID = ServiceId.ToString(),
-                        Address = HttpContext.Connection.LocalIpAddress.ToString(),
+                        Address = address,
                         Port = HttpContext.Connection.LocalPort,
                         Check = new AgentServiceCheck
                         {
                             DeregisterCriticalServiceAfter = TimeSpan.FromSeconds (5),
                                 Interval = TimeSpan.FromSeconds (15),
-                                HTTP = $"https://localhost:{HttpContext.Connection.LocalPort}/api/Consul/Health",
+                                HTTP = $"https://{address}:{HttpContext.Connection.LocalPort}/api/Consul/Health",
                                 Timeout = TimeSpan.FromSeconds (5)
                         }
                 });
