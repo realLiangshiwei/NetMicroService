@@ -32,7 +32,7 @@ namespace UserService.Controllers
             }))
             {
                  var address = HttpContext.Connection.LocalIpAddress.ToString();
-                 if(address=="::1")
+                 if(address=="::1" || address == "127.0.0.1")
                  {
                      address = "localhost";
                  }

@@ -1,0 +1,35 @@
+{
+    "ReRoutes": [
+        // {
+        //     "DownstreamPathTemplate": "/api/{url}",
+        //     "DownstreamScheme": "https",
+        //     "ServiceName":"userService",
+        //     "UpstreamPathTemplate": "/userService/{url}",
+        //     "UpstreamHttpMethod": [ "Put", "Delete","Get","Delete" ],
+        //     "LoadBalancerOptions": {
+        //         "Type": "LeastConnection"
+        //     },
+        //     "UseServiceDiscovery": true
+        // }
+    ],
+    "GlobalConfiguration": {
+        "RequestIdKey": null,
+        "ServiceDiscoveryProvider": {
+            "Host": "localhost",
+            "Port": 8500,
+            "Type": "Consul"
+        },
+        "BaseUrl": null,
+        "LoadBalancerOptions": {
+        "Type": "LeastConnection",
+        "Key": null,
+        "Expiry": 0
+        },
+        "DownstreamScheme": "https",
+        "HttpHandlerOptions": {
+            "AllowAutoRedirect": true,
+            "UseCookieContainer": true,
+            "UseTracing": true
+        }
+    }
+}
